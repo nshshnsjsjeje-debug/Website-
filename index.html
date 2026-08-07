@@ -1,0 +1,38 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#09090c"><title>Falcon RP</title><link rel="stylesheet" href="/style.css"></head><body>
+<div id="loader"><div class="loaderLogo">FC</div><div class="spinner"></div><div>جاري التحميل<span class="dots"></span></div></div>
+<div id="toast"><span id="toastIcon">✓</span><div><b id="toastTitle"></b><small id="toastText"></small></div></div>
+<header><a class="brand" href="#home"><img src="/fc.gif" alt="FC"><div><b>FALCON RP</b><small>ROLE PLAY STORE</small></div></a><nav><a href="#home">الرئيسية</a><a href="#samp">شراء سامب</a><a href="#rewards">استلام الهدايا</a><a href="#support">الدعم الفني</a><a href="https://discord.gg/u6ATBnKfZ" target="_blank">سيرفرنا</a></nav><div id="account"></div><button class="menuBtn" onclick="toggleMenu()">☰</button></header>
+<div id="mobileMenu" class="mobileMenu"><button onclick="toggleMenu()">×</button><a href="#home" onclick="toggleMenu()">الرئيسية</a><a href="#samp" onclick="toggleMenu()">شراء سامب</a><a href="#rewards" onclick="toggleMenu()">استلام الهدايا</a><a href="#support" onclick="toggleMenu()">الدعم الفني</a><a href="https://discord.gg/u6ATBnKfZ" target="_blank">سيرفرنا في ديسكورد</a><div id="mobileOwner" style="display:none"><a href="#owner" onclick="toggleMenu()">⚙️ لوحة صاحب الموقع</a></div></div>
+<main>
+<section id="home" class="hero"><div class="heroCopy"><div class="tag">FALCON CITY • ROLE PLAY</div><h1>مستقبل الـ RP<br><span>يبدأ من هنا.</span></h1><p>متجر Falcon RP الاحترافي. اجمع عملات فالكون يومياً، استلم الهدايا، واحصل على مميزاتك داخل السيرفر.</p><div class="actions"><a class="btn primary" href="#samp">ابدأ التسوق</a><a class="btn dark" href="https://discord.gg/u6ATBnKfZ" target="_blank">دخول السيرفر ↗</a></div></div><div class="heroVisual"><img src="/fc.gif" alt="Falcon City"><div class="floatCoin">F <span>عملات فالكون</span></div></div></section>
+<section class="balance"><div><small>رصيدك الحالي</small><strong id="coinsTop">—</strong><span>🪙 عملة فالكون</span></div><div><small>المكافأة اليومية</small><strong>+50</strong><span>تُضاف مرة كل يوم</span></div><div><small>الحالة</small><strong id="loginState">زائر</strong><span>تسجيل دخول Google</span></div></section>
+<section id="samp"><div class="sectionHead"><div><span>STORE</span><h2>شراء سامب</h2></div><p>اضغط على المنتج لفتح قائمة الشراء.</p></div><div class="grid">
+<article class="product"><div class="productIcon">🚘</div><h3>سيارة خاصة</h3><p>سيارة خاصة بك داخل السيرفر.</p><strong>5,000 <i>F</i></strong><button onclick="buy('car','سيارة خاصة',5000)">شراء الآن</button></article>
+<article class="product"><div class="productIcon">🏡</div><h3>فيلا خاصة</h3><p>امتلك فيلا خاصة بك داخل السيرفر.</p><strong>10,000 <i>F</i></strong><button onclick="buy('villa','فيلا خاصة',10000)">شراء الآن</button></article>
+<article class="product"><div class="productIcon">👑</div><h3>رتبة VIP</h3><p>رتبة VIP بمميزات خاصة داخل السيرفر.</p><strong>3,000 <i>F</i></strong><button onclick="buy('vip','رتبة VIP',3000)">شراء الآن</button></article>
+<article class="product"><div class="productIcon">🔧</div><h3>ورشة خاصة</h3><p>ورشة خاصة بك داخل السيرفر.</p><strong>20,000 <i>F</i></strong><button onclick="buy('workshop','ورشة خاصة',20000)">شراء الآن</button></article>
+</div></section>
+<section id="rewards" class="rewards"><div class="rewardCard"><div class="rewardIcon">🎁</div><div><span>REWARDS</span><h2>استلام الهدايا</h2><p>ادخل من رابط المكافأة الخاص بك لتحصل على عملات فالكون. كل رابط يمكن استخدامه مرة واحدة لكل حساب.</p></div><button class="btn primary" onclick="claimCurrentRef()">استلام الهدية</button></div></section>
+<section id="support" class="support"><div class="supportPic"><img src="/support.jpg" alt="Support"></div><div class="supportCopy"><span>SUPPORT</span><h2>الدعم الفني</h2><p>عندك مشكلة أو استفسار؟ ابعت رسالتك للإدارة وسيتم الرد عليك.</p></div><button class="btn primary" onclick="support()">إرسال رسالة</button></section>
+<section id="owner" class="owner" style="display:none"><div class="sectionHead"><div><span>OWNER AREA</span><h2>لوحة صاحب الموقع</h2></div><p>هذه المنطقة لا تظهر إلا لحساب المالك.</p></div><div class="ownerGrid"><div class="panel"><h3>🎁 إنشاء رابط عملات</h3><p>حدد العملات وعدد الأشخاص. عند الإنشاء سيتم نسخ الرابط.</p><input id="refCode" placeholder="اسم الرابط (اختياري)"><input id="refAmount" type="number" min="1" placeholder="العملات لكل شخص"><input id="refMaxUses" type="number" min="1" placeholder="عدد الأشخاص"><button onclick="createRef()">إنشاء ونسخ الرابط</button><div id="createdRef"></div><div id="refs"></div></div><div class="panel"><h3>📦 طلبات الشراء</h3><div id="orders"></div></div><div class="panel"><h3>🎧 رسائل الدعم</h3><div id="messages"></div></div></div></section>
+</main>
+<div id="authModal" class="modal"><div class="modalBox authBox">
+<button class="close" onclick="closeAuth()">×</button>
+<div class="modalBadge">FALCON RP</div>
+<div class="authTabs"><button id="loginTab" class="active" onclick="showAuth('login')">تسجيل الدخول</button><button id="registerTab" onclick="showAuth('register')">إنشاء حساب</button></div>
+<div id="loginForm">
+<h2>أهلاً بك في Falcon RP</h2><p>سجّل دخولك بحساب الموقع.</p>
+<input id="loginUser" class="authInput" placeholder="اسم المستخدم" autocomplete="username">
+<input id="loginPass" class="authInput" type="password" placeholder="كلمة المرور" autocomplete="current-password">
+<button class="btn primary authSubmit" onclick="login()">تسجيل الدخول</button>
+</div>
+<div id="registerForm" style="display:none">
+<h2>إنشاء حساب جديد</h2><p>الحساب خاص بالموقع، ولا يحتاج Discord أو Google.</p>
+<input id="regUser" class="authInput" placeholder="اسم المستخدم" autocomplete="username">
+<input id="regPass" class="authInput" type="password" placeholder="كلمة المرور" autocomplete="new-password">
+<input id="regPass2" class="authInput" type="password" placeholder="تأكيد كلمة المرور" autocomplete="new-password">
+<button class="btn primary authSubmit" onclick="register()">إنشاء الحساب</button>
+</div>
+</div></div>
+<div id="modal" class="modal"><div class="modalBox"><button class="close" onclick="closeModal()">×</button><div class="modalBadge">FALCON RP</div><h2 id="modalTitle"></h2><p id="modalDesc"></p><div id="modalExtra"></div><textarea id="modalInput" placeholder="اكتب اسمك في ديسكورد أو البيانات المطلوبة"></textarea><button id="modalBtn" class="btn primary">تأكيد</button></div></div>
+<script src="/app.js"></script></body></html>
