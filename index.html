@@ -1,0 +1,17 @@
+<!doctype html><html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prime Store</title><link rel="stylesheet" href="/style.css"></head><body>
+<header><b>✦ PRIME STORE</b><div><span id="user"></span> <span id="balance">🪙 0</span></div></header>
+<main>
+<section class="hero"><h1>PRIME STORE</h1><p>سجل دخولك بحساب Discord وابدأ استخدام المتجر</p><a class="btn" href="/auth/discord">تسجيل الدخول بـ Discord</a></section>
+<section id="account" class="panel"><h2>حسابك</h2><p id="status">غير مسجل دخول</p>
+<button onclick="daily()">🎁 استلام 10 Coins اليومية</button></section>
+<section class="cards">
+<div class="card"><h2>🚀 نسخ سيرفرات</h2><p>السعر: 20 Coins</p><button onclick="buyAndCopy('نسخ سيرفرات')">🛒 شراء ونسخ</button></div>
+<div class="card"><h2>🤖 خدمات البوتات</h2><p>السعر: 20 Coins</p><button onclick="buy('خدمات البوتات')">🛒 شراء</button></div>
+</section>
+<section class="panel admin"><h2>🎁 إنشاء رابط هدية</h2><p>للاستخدام الإداري في النسخة التجريبية.</p>
+<input id="amount" type="number" placeholder="عدد Coins"><input id="uses" type="number" min="1" value="1" placeholder="عدد الاستخدامات">
+<button onclick="createGift()">إنشاء الرابط</button><pre id="result"></pre></section>
+<section id="gift" class="panel hidden"><h2>🎉 هدية</h2><p>سجل دخول Discord ثم اضغط الاستلام.</p><button onclick="claimGift()">استلام الهدية</button></section>
+</main><script src="/script.js"></script></body></html>
