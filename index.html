@@ -1,0 +1,78 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#09090c"><title>فالكون نيو مميزات</title><link rel="stylesheet" href="/style.css"></head><body>
+<div id="loader"><div class="loaderLogo">FC</div><div class="spinner"></div><div>جاري التحميل<span class="dots"></span></div></div>
+<div id="toast"><span id="toastIcon">✓</span><div><b id="toastTitle"></b><small id="toastText"></small></div></div>
+<header><a class="brand" href="#home"><div><b>فالكون نيو</b><small>STORE</small></div></a><nav><a href="#home">الرئيسية</a><a href="#samp">شراء سامب</a><a href="#rewards">استلام الهدايا</a><a href="#offers">العروض</a><a href="#wheel">عجلة الحظ</a><a href="javascript:void(0)" onclick="openNotifications()">🔔 الإشعارات</a><a href="javascript:void(0)" onclick="support()">الدعم الفني</a><a href="#roleplay">تعليم رول بلاي</a><a href="https://discord.gg/u6ATBnKfZ" target="_blank">سيرفرنا</a></nav><div class="siteSearch"><input id="siteSearch" placeholder="🔎 ابحث داخل الموقع..." oninput="searchSite(this.value)"></div><div id="account"></div><div class="quickActions"><button class="quickBtn" onclick="openDashboard()">👤 حسابي</button><button class="quickBtn" onclick="openNotifications()">🔔 الإشعارات <span id="notificationCount">0</span></button><button class="quickBtn" onclick="openCart()">🛒 السلة <span id="cartCount">0</span></button></div><button class="menuBtn" onclick="toggleMenu()">☰</button></header>
+<div id="mobileMenu" class="mobileMenu"><button onclick="toggleMenu()">×</button><a href="#home" onclick="toggleMenu()">الرئيسية</a><a href="#samp" onclick="toggleMenu()">شراء سامب</a><a href="#rewards" onclick="toggleMenu()">استلام الهدايا</a><a href="#offers" onclick="toggleMenu()">العروض</a><a href="#wheel" onclick="toggleMenu()">عجلة الحظ</a><a href="javascript:void(0)" onclick="toggleMenu();openNotifications()">🔔 الإشعارات</a><a href="javascript:void(0)" onclick="toggleMenu();support()">الدعم الفني</a><a href="https://discord.gg/u6ATBnKfZ" target="_blank">سيرفرنا في ديسكورد</a><div id="mobileOwner" style="display:none"><a href="#owner" onclick="toggleMenu()">⚙️ لوحة صاحب الموقع</a></div></div>
+<main>
+<section id="home" class="hero"><div class="heroCopy"><div class="tag">Falcon on Top • ROLE PLAY</div><h1>مستقبل الـ RP<br><span>يبدأ من هنا.</span></h1><p>متجر Falcon on Top الاحترافي. اجمع عملات فالكون يومياً، استلم الهدايا، واحصل على مميزاتك داخل السيرفر.</p><div class="actions"><a class="btn primary" href="#samp">ابدأ التسوق</a><a class="btn dark" href="https://discord.gg/u6ATBnKfZ" target="_blank">دخول السيرفر ↗</a></div></div><div class="heroVisual"><div class="floatCoin">F <span>عملات فالكون</span></div></div></section>
+<section class="siteSearch"><div class="searchBox"><span>🔎</span><input id="siteSearch" oninput="searchSite(this.value)" placeholder="ابحث عن منتج أو قسم أو مفهوم رول بلاي..."><button onclick="clearSearch()">×</button></div><div id="searchResults" class="searchResults"></div></section><section class="balance"><div><small>رصيدك الحالي</small><strong id="coinsTop">—</strong><span>🪙 عملة فالكون</span></div><div><small>المكافأة اليومية</small><strong>+50</strong><span>تُضاف مرة كل يوم</span></div><div><small>الحالة</small><strong id="loginState">زائر</strong><span>تسجيل الدخول بحساب الموقع</span></div></section>
+<section id="falconTop" class="leaderboard"><div class="sectionHead"><div><span>FALCON TOP</span><h2>🏆 متصدرو عملات فالكون</h2></div><p>ترتيب المستخدمين حسب عدد عملات فالكون.</p></div><div id="leaderboardList" class="leaderboardList"></div></section>
+<section id="newFeatures" class="featureStrip"><div><b>⭐ تقييمات</b><span>شارك رأيك في المنتجات.</span></div><div><b>🎟️ كوبونات خصم</b><span>استخدم كود الخصم عند الشراء.</span></div><div><b>🏆 مستويات</b><span>مستواك يرتفع حسب رصيدك.</span></div></section>
+<section id="samp"><div class="sectionHead"><div><span>STORE</span><h2>شراء سامب</h2></div><p>اضغط على المنتج لفتح قائمة الشراء.</p></div><div class="grid">
+<article class="product"><div class="productIcon">🚘</div><h3>سيارة خاصة</h3><p>سيارة خاصة بك داخل السيرفر.</p><strong>5,000 <i>F</i></strong><div class="productActions"><button onclick="addToCart('car','سيارة خاصة',5000)">إضافة للسلة</button><button onclick="buy('car','سيارة خاصة',5000)">شراء الآن</button></div><div class="reviewMini"><button onclick="openReviews(this)">⭐ التقييمات</button></div></article>
+<article class="product"><div class="productIcon">🏡</div><h3>فيلا خاصة</h3><p>امتلك فيلا خاصة بك داخل السيرفر.</p><strong>10,000 <i>F</i></strong><div class="productActions"><button onclick="addToCart('villa','فيلا خاصة',10000)">إضافة للسلة</button><button onclick="buy('villa','فيلا خاصة',10000)">شراء الآن</button></div><div class="reviewMini"><button onclick="openReviews(this)">⭐ التقييمات</button></div></article>
+<article class="product"><div class="productIcon">👑</div><h3>رتبة VIP</h3><p>رتبة VIP بمميزات خاصة داخل السيرفر.</p><strong>3,000 <i>F</i></strong><div class="productActions"><button onclick="addToCart('vip','رتبة VIP',3000)">إضافة للسلة</button><button onclick="buy('vip','رتبة VIP',3000)">شراء الآن</button></div><div class="reviewMini"><button onclick="openReviews(this)">⭐ التقييمات</button></div></article>
+<article class="product"><div class="productIcon">🔧</div><h3>ورشة خاصة</h3><p>ورشة خاصة بك داخل السيرفر.</p><strong>20,000 <i>F</i></strong><div class="productActions"><button onclick="addToCart('workshop','ورشة خاصة',20000)">إضافة للسلة</button><button onclick="buy('workshop','ورشة خاصة',20000)">شراء الآن</button></div><div class="reviewMini"><button onclick="openReviews(this)">⭐ التقييمات</button></div></article>
+</div></section>
+<section id="offers" class="offersSection"><div class="sectionHead"><div><span>LIMITED OFFERS</span><h2>🔥 العروض المؤقتة</h2></div><p>عروض تتغير مع الوقت.</p></div><div id="offersList" class="offersGrid"></div></section>
+<section id="wheel" class="wheelSection"><div class="sectionHead"><div><span>DAILY LUCK</span><h2>🎡 عجلة الحظ</h2></div><p>جولة مجانية كل يوم.</p></div><div class="wheelCard"><div class="wheelCircle" id="wheelCircle"><span>F</span></div><div><h3>جرّب حظك اليوم</h3><p>اربح من 10 إلى 250 عملة فالكون. النتيجة تُحفظ على حسابك.</p><button class="btn primary" onclick="spinWheel()">🎡 لف العجلة</button><div id="wheelResult" class="wheelResult"></div></div></div></section>
+<section id="rewards" class="rewards"><div class="rewardCard"><div class="rewardIcon">🎁</div><div><span>REWARDS</span><h2>استلام الهدايا</h2><p>ادخل من رابط المكافأة الخاص بك لتحصل على عملات فالكون. كل رابط يمكن استخدامه مرة واحدة لكل حساب.</p></div><button class="btn primary" onclick="claimCurrentRef()">استلام الهدية</button></div></section>
+<section id="support" class="support"><div class="supportPic"></div><div class="supportCopy"><span>SUPPORT</span><h2>الدعم الفني</h2><p>افتح تذكرة دعم جديدة أو تابع تذاكرك الحالية، بدون تحريك الصفحة.</p></div><button class="btn primary" onclick="openTickets()">🎧 تذاكر الدعم الفني</button></section>
+<section id="owner" class="owner" style="display:none"><div class="sectionHead"><div><span>OWNER AREA</span><h2>لوحة صاحب الموقع</h2></div><p>هذه المنطقة لا تظهر إلا لحساب المالك.</p></div><div class="ownerGrid"><div class="panel"><h3>📢 إرسال إشعار لكل المستخدمين</h3><p>اكتب عنوان ومحتوى الإشعار ليظهر أعلى شاشة المستخدمين.</p><input id="broadcastTitle" placeholder="عنوان الإشعار"><textarea id="broadcastText" class="ownerTextarea" placeholder="اكتب نص الإشعار..."></textarea><button onclick="broadcastNotification()">إرسال الإشعار للجميع</button></div><div class="panel"><h3>🎁 إرسال هدية لكل المستخدمين</h3><p>حدد عدد عملات فالكون. ستصل لكل مستخدم كهدية معلّقة، ويظهر له إشعار أعلى الشاشة وقائمة استلام عند دخوله.</p><input id="giftAllAmount" type="number" min="1" placeholder="عدد العملات لكل مستخدم"><button onclick="giftAllUsers()">إرسال الهدية للجميع</button></div><div class="panel"><h3>🎁 إنشاء رابط عملات</h3><p>حدد العملات وعدد الأشخاص. عند الإنشاء سيتم نسخ الرابط.</p><input id="refCode" placeholder="اسم الرابط (اختياري)"><input id="refAmount" type="number" min="1" placeholder="العملات لكل شخص"><input id="refMaxUses" type="number" min="1" placeholder="عدد الأشخاص"><button onclick="createRef()">إنشاء ونسخ الرابط</button><div id="createdRef"></div><div id="refs"></div></div><div class="panel"><h3>🎟️ إنشاء كوبون خصم</h3><input id="couponCreateCode" placeholder="الكود مثل FALCON10"><input id="couponPercent" type="number" min="1" max="100" placeholder="نسبة الخصم %"><input id="couponMaxUses" type="number" min="1" placeholder="عدد الاستخدامات (اختياري)"><button onclick="createCoupon()">إنشاء الكوبون</button><div id="couponAdminList"></div></div><div class="panel"><h3>📦 طلبات الشراء</h3><div id="orders"></div></div><div class="panel"><h3>🎧 تذاكر الدعم</h3><div id="tickets"></div></div><div class="panel"><h3>🎧 رسائل الدعم القديمة</h3><div id="messages"></div></div></div></section>
+<section id="roleplay" class="roleplay"><div class="sectionHead"><div><span>ROLE PLAY GUIDE</span><h2>تعليم رول بلاي</h2></div><p>قواعد أساسية تساعدك تلعب RP بشكل احترافي ومنظم.</p></div><div class="rpGrid"><article><b>🎭 ما هو الـ Role Play؟</b><p>هو تمثيل شخصية داخل عالم اللعبة والتصرف بناءً على شخصيتها وقصتها، وليس بناءً على معلومات اللاعب خارج اللعبة.</p></article><article><b>🧠 حافظ على شخصيتك</b><p>التزم بتاريخ شخصيتك ووظيفتها وعلاقاتها، وخلي قراراتك منطقية مع الأحداث التي تمر بها.</p></article><article><b>🚫 ممنوع كسر الرول</b><p>لا تستخدم معلومات عرفتها خارج اللعبة داخل اللعبة، ولا تستغل أخطاء أو معلومات خارج الشخصية للحصول على أفضلية.</p></article><article><b>🚗 القيادة والتصرف</b><p>قد بشكل منطقي، واحترم قوانين السير والأماكن العامة، وتجنب التصرفات العشوائية التي تفسد تجربة الآخرين.</p></article><article><b>🚔 التعامل مع الشرطة</b><p>تعامل مع الشرطة داخل سيناريو اللعبة بشكل منطقي، واحترم الأحداث ولا تبدأ مشاكل بدون سبب RP واضح.</p></article><article><b>🤝 احترام اللاعبين</b><p>احترم الجميع، وتذكر أن الهدف هو صناعة سيناريو ممتع ومتوازن وليس الفوز بأي طريقة.</p></article></div></section>
+</main>
+<div id="authModal" class="modal"><div class="modalBox authBox">
+<button class="close" onclick="closeAuth()">×</button>
+<div class="modalBadge">Falcon on Top</div>
+<div class="authTabs"><button id="loginTab" class="active" onclick="showAuth('login')">تسجيل الدخول</button><button id="registerTab" onclick="showAuth('register')">إنشاء حساب</button></div>
+<div id="loginForm">
+<h2>أهلاً بك في Falcon on Top</h2><p>سجّل دخولك بحساب الموقع.</p>
+<input id="loginUser" class="authInput" placeholder="اسم المستخدم" autocomplete="username">
+<input id="loginPass" class="authInput" type="password" placeholder="كلمة المرور" autocomplete="current-password">
+<button class="btn primary authSubmit" onclick="login()">تسجيل الدخول</button>
+</div>
+<div id="registerForm" style="display:none">
+<h2>إنشاء حساب جديد</h2><p>الحساب خاص بFalcon on Top، ولا يحتاج Discord أو Google.</p>
+<input id="regUser" class="authInput" placeholder="اسم المستخدم" autocomplete="username">
+<input id="regPass" class="authInput" type="password" placeholder="كلمة المرور" autocomplete="new-password">
+<input id="regPass2" class="authInput" type="password" placeholder="تأكيد كلمة المرور" autocomplete="new-password">
+<button class="btn primary authSubmit" onclick="register()">إنشاء الحساب</button>
+</div>
+</div></div>
+
+<div id="notificationsModal" class="modal"><div class="modalBox dashboardBox notificationsBox"><button class="close" onclick="closeFixedModal('notificationsModal')">×</button><div class="modalBadge">INBOX</div><h2>📨 مركز الإشعارات</h2><p class="muted">هنا تظهر إشعارات الشراء، الهدايا، الدعم والعروض.</p><div id="notificationsList"></div></div></div>
+<div id="notificationModal" class="modal notificationModal" role="dialog" aria-modal="true">
+<div class="modalBox notificationBox">
+<div class="notificationIcon">🔔</div>
+<div class="modalBadge">FALCON NOTIFICATION</div>
+<h2 id="notificationTitle">إشعار جديد</h2>
+<p id="notificationText"></p>
+<button class="btn primary" onclick="confirmNotification()">تم / تأكيد</button>
+</div></div>
+
+<div id="supportModal" class="modal supportModal" role="dialog" aria-modal="true">
+<div class="modalBox supportModalBox">
+<button class="close" onclick="closeSupportModal()">×</button>
+<div class="modalBadge">SUPPORT</div>
+<h2>إرسال رسالة للدعم الفني</h2>
+<p>اكتب رسالتك هنا وسيتم إرسالها مباشرة.</p>
+<textarea id="supportModalInput" placeholder="اكتب مشكلتك أو رسالتك..."></textarea>
+<button class="btn primary" onclick="sendSupportInline()">إرسال الرسالة</button>
+</div></div>
+
+<div id="giftModal" class="modal giftModal"><div class="modalBox giftBox">
+<button class="close" onclick="closeGiftModal()">×</button>
+<div class="giftEmoji">🎁</div>
+<div class="modalBadge">SUPPORT GIFT</div>
+<h2>لقد استلمت هدية من الدعم الفني</h2>
+<p id="giftDesc">لديك هدية عملات فالكون جاهزة للاستلام.</p>
+<div id="giftList" class="giftList"></div>
+<button id="giftClaimBtn" class="btn primary giftClaimBtn" onclick="claimGiftFromPrompt()">استلام الهدية</button>
+</div></div>
+
+<div id="modal" class="modal"><div class="modalBox"><button class="close" onclick="closeModal()">×</button><div class="modalBadge">Falcon on Top</div><h2 id="modalTitle"></h2><p id="modalDesc"></p><div id="modalExtra"></div><textarea id="modalInput" placeholder="اكتب اسمك في ديسكورد أو البيانات المطلوبة"></textarea><button id="modalBtn" class="btn primary">تأكيد</button></div></div>
+<div id="dashboardModal" class="modal"><div class="modalBox dashboardBox"><button class="close" onclick="closeFixedModal('dashboardModal')">×</button><div class="modalBadge">MY DASHBOARD</div><h2>لوحة تحكم المستخدم</h2><div id="dashboardContent"></div></div></div>
+<div id="cartModal" class="modal"><div class="modalBox dashboardBox"><button class="close" onclick="closeFixedModal('cartModal')">×</button><div class="modalBadge">SHOPPING CART</div><h2>سلة المشتريات</h2><div id="cartContent"></div><div class="couponBox"><input id="couponCode" placeholder="كود الخصم"><button class="btn dark" onclick="applyCoupon()">تطبيق الكوبون</button><small id="couponResult"></small></div></div></div>
+<div id="reviewsModal" class="modal"><div class="modalBox dashboardBox"><button class="close" onclick="closeFixedModal('reviewsModal')">×</button><div class="modalBadge">REVIEWS</div><h2 id="reviewsTitle">تقييمات المنتج</h2><div id="reviewsList"></div><div class="reviewForm"><select id="reviewRating"><option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option><option value="2">★★☆☆☆</option><option value="1">★☆☆☆☆</option></select><textarea id="reviewText" placeholder="اكتب رأيك في المنتج..."></textarea><button class="btn primary" onclick="submitReview()">إرسال التقييم</button></div></div></div>
+<div id="ticketsModal" class="modal"><div class="modalBox dashboardBox"><button class="close" onclick="closeFixedModal('ticketsModal')">×</button><div class="modalBadge">SUPPORT TICKETS</div><h2>تذاكر الدعم الفني</h2><div class="ticketNew"><input id="ticketSubject" placeholder="عنوان المشكلة"><textarea id="ticketMessage" placeholder="اكتب تفاصيل المشكلة..."></textarea><button class="btn primary" onclick="createTicket()">فتح تذكرة</button></div><div id="ticketList"></div></div></div>
+<script src="/app.js"></script></body></html>
