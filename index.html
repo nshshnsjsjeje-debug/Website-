@@ -1,0 +1,101 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#09090c"><title>Falcon on Top</title><link rel="stylesheet" href="/style.css"></head><body>
+<div id="loader"><div class="loaderLogo">FC</div><div class="spinner"></div><div>جاري التحميل<span class="dots"></span></div></div>
+<div id="toast"><span id="toastIcon">✓</span><div><b id="toastTitle"></b><small id="toastText"></small></div></div>
+<header><a class="brand" href="#home"><div><b>Falcon on Top</b><small>STORE</small></div></a><nav><a href="#home">الرئيسية</a><a href="#samp">شراء سامب</a><a href="#rewards">استلام الهدايا</a><a href="javascript:void(0)" onclick="support()">الدعم الفني</a><button class="rpNavBtn" onclick="openRPGuide()">📚 مفاهيم الرول بلاي</button><a href="https://discord.gg/u6ATBnKfZ" target="_blank">سيرفرنا</a></nav><div id="account"></div><button class="menuBtn" onclick="toggleMenu()">☰</button></header>
+<div id="mobileMenu" class="mobileMenu"><button onclick="toggleMenu()">×</button><a href="#home" onclick="toggleMenu()">الرئيسية</a><a href="#samp" onclick="toggleMenu()">شراء سامب</a><a href="#rewards" onclick="toggleMenu()">استلام الهدايا</a><a href="javascript:void(0)" onclick="toggleMenu();support()">الدعم الفني</a><button class="rpNavBtn" onclick="openRPGuide();toggleMenu()">📚 مفاهيم الرول بلاي</button><a href="https://discord.gg/u6ATBnKfZ" target="_blank">سيرفرنا في ديسكورد</a><div id="mobileOwner" style="display:none"><a href="#owner" onclick="toggleMenu()">⚙️ لوحة صاحب الموقع</a></div></div>
+<main>
+<section id="home" class="hero"><div class="heroCopy"><div class="tag">Falcon on Top • ROLE PLAY</div><h1>مستقبل الـ RP<br><span>يبدأ من هنا.</span></h1><p>متجر Falcon on Top الاحترافي. اجمع عملات فالكون يومياً، استلم الهدايا، واحصل على مميزاتك داخل السيرفر.</p><div class="actions"><a class="btn primary" href="#samp">ابدأ التسوق</a><a class="btn dark" href="https://discord.gg/u6ATBnKfZ" target="_blank">دخول السيرفر ↗</a></div></div><div class="heroVisual"><div class="floatCoin">F <span>عملات فالكون</span></div></div></section>
+<section class="balance"><div><small>رصيدك الحالي</small><strong id="coinsTop">—</strong><span>🪙 عملة فالكون</span></div><div><small>المكافأة اليومية</small><strong>+50</strong><span>تُضاف مرة كل يوم</span></div><div><small>الحالة</small><strong id="loginState">زائر</strong><span>تسجيل الدخول بحساب الموقع</span></div></section>
+<section id="samp"><div class="sectionHead"><div><span>STORE</span><h2>شراء سامب</h2></div><p>اضغط على المنتج لفتح قائمة الشراء.</p></div><div class="grid">
+<article class="product"><div class="productIcon">🚘</div><h3>سيارة خاصة</h3><p>سيارة خاصة بك داخل السيرفر.</p><strong>5,000 <i>F</i></strong><button onclick="buy('car','سيارة خاصة',5000)">شراء الآن</button></article>
+<article class="product"><div class="productIcon">🏡</div><h3>فيلا خاصة</h3><p>امتلك فيلا خاصة بك داخل السيرفر.</p><strong>10,000 <i>F</i></strong><button onclick="buy('villa','فيلا خاصة',10000)">شراء الآن</button></article>
+<article class="product"><div class="productIcon">👑</div><h3>رتبة VIP</h3><p>رتبة VIP بمميزات خاصة داخل السيرفر.</p><strong>3,000 <i>F</i></strong><button onclick="buy('vip','رتبة VIP',3000)">شراء الآن</button></article>
+<article class="product"><div class="productIcon">🔧</div><h3>ورشة خاصة</h3><p>ورشة خاصة بك داخل السيرفر.</p><strong>20,000 <i>F</i></strong><button onclick="buy('workshop','ورشة خاصة',20000)">شراء الآن</button></article>
+</div></section>
+<section id="rewards" class="rewards"><div class="rewardCard"><div class="rewardIcon">🎁</div><div><span>REWARDS</span><h2>استلام الهدايا</h2><p>ادخل من رابط المكافأة الخاص بك لتحصل على عملات فالكون. كل رابط يمكن استخدامه مرة واحدة لكل حساب.</p></div><button class="btn primary" onclick="claimCurrentRef()">استلام الهدية</button></div></section>
+<section id="support" class="support"><div class="supportPic"></div><div class="supportCopy"><span>SUPPORT</span><h2>الدعم الفني</h2><p>اضغط الزر وستظهر نافذة الكتابة فورًا أمامك، بدون أي تحريك للصفحة.</p></div><button class="btn primary" onclick="support()">إرسال رسالة للدعم الفني</button></section>
+<section id="owner" class="owner" style="display:none"><div class="sectionHead"><div><span>OWNER AREA</span><h2>لوحة صاحب الموقع</h2></div><p>هذه المنطقة لا تظهر إلا لحساب المالك.</p></div><div class="ownerGrid"><div class="panel"><h3>📢 إرسال إشعار لكل المستخدمين</h3><p>اكتب عنوان ومحتوى الإشعار ليظهر أعلى شاشة المستخدمين.</p><input id="broadcastTitle" placeholder="عنوان الإشعار"><textarea id="broadcastText" class="ownerTextarea" placeholder="اكتب نص الإشعار..."></textarea><button onclick="broadcastNotification()">إرسال الإشعار للجميع</button></div><div class="panel"><h3>🎁 إرسال هدية لكل المستخدمين</h3><p>حدد عدد عملات فالكون. ستصل لكل مستخدم كهدية معلّقة، ويظهر له إشعار أعلى الشاشة وقائمة استلام عند دخوله.</p><input id="giftAllAmount" type="number" min="1" placeholder="عدد العملات لكل مستخدم"><button onclick="giftAllUsers()">إرسال الهدية للجميع</button></div><div class="panel"><h3>🎁 إنشاء رابط عملات</h3><p>حدد العملات وعدد الأشخاص. عند الإنشاء سيتم نسخ الرابط.</p><input id="refCode" placeholder="اسم الرابط (اختياري)"><input id="refAmount" type="number" min="1" placeholder="العملات لكل شخص"><input id="refMaxUses" type="number" min="1" placeholder="عدد الأشخاص"><button onclick="createRef()">إنشاء ونسخ الرابط</button><div id="createdRef"></div><div id="refs"></div></div><div class="panel"><h3>📦 طلبات الشراء</h3><div id="orders"></div></div><div class="panel"><h3>🎧 رسائل الدعم</h3><div id="messages"></div></div></div></section>
+<section id="roleplay" class="roleplay"><div class="sectionHead"><div><span>ROLE PLAY GUIDE</span><h2>مفاهيم الرول بلاي</h2></div><p>دليل منظم لقواعد اللعب، الشرطة، الجرائم، القيادة، السيناريوهات والتعامل مع اللاعبين.</p></div><button class="btn primary rpBottomBtn" onclick="openRPGuide()">📚 فتح دليل مفاهيم الرول بلاي بالكامل</button></section>
+</main>
+
+<div id="rpGuideModal" class="modal rpGuideModal" role="dialog" aria-modal="true" aria-labelledby="rpGuideTitle">
+  <div class="modalBox rpGuideBox">
+    <div class="rpGuideHead">
+      <button class="rpGuideClose" onclick="closeRPGuide()" aria-label="إغلاق">×</button>
+      <span class="rpBadge">FALCON • ROLE PLAY ACADEMY</span>
+      <h2 id="rpGuideTitle">📚 مفاهيم الرول بلاي</h2>
+      <p>دليل مختصر ومنظم لفهم الرول بلاي وقواعد الشرطة والجرائم والسيناريوهات داخل السيرفر.</p>
+    </div>
+    <div class="rpGuideScroll">
+      <div class="rpGuideGrid">
+        <article class="rpRule full"><h3>🎭 1. أساسيات الرول بلاي</h3><ul><li>تقمص شخصية لها اسم وقصة وتصرفات منطقية.</li><li>فرّق بين معلومات اللاعب خارج اللعبة ومعلومات الشخصية داخل اللعبة.</li><li>حافظ على استمرارية الأحداث ولا تغيّر شخصيتك حسب مصلحتك في اللحظة.</li><li>الهدف صناعة سيناريو ممتع ومتوازن، وليس الفوز بأي طريقة.</li></ul></article>
+        <article class="rpRule"><h3>🚫 2. كسر الرول (Fail RP)</h3><ul><li>ممنوع التصرفات غير المنطقية التي تفسد السيناريو.</li><li>لا تستخدم أخطاء اللعبة أو ثغراتها للحصول على أفضلية.</li><li>لا تتعامل مع الأحداث وكأنك تعرف المستقبل.</li><li>احترم قرارات السيناريو حتى لو لم تكن في صالحك.</li></ul></article>
+        <article class="rpRule"><h3>🧠 3. الميتا جيمينج (MG)</h3><p>لا تستخدم معلومة عرفتها من Discord أو بث أو محادثة خارج الشخصية وكأن شخصيتك عرفتها داخل اللعبة.</p></article>
+        <article class="rpRule"><h3>💪 4. القوة غير المنطقية (PG)</h3><p>لا تجعل شخصيتك تتجاهل الخطر أو تقوم بأفعال مستحيلة لمجرد الحصول على أفضلية في السيناريو.</p></article>
+        <article class="rpRule"><h3>🚔 5. قواعد الشرطة</h3><ul><li>الشرطة تتصرف وفق القانون الداخلي للسيرفر وتسلسل الأوامر.</li><li>يجب وجود سبب RP واضح للتوقيف أو التفتيش أو المطاردة.</li><li>التزم بإجراءات التحذير والتفاوض والتعامل مع الأدلة حسب قوانين السيرفر.</li><li>ممنوع استغلال رتبة الشرطة لمضايقة اللاعبين أو لمصلحة شخصية.</li><li>احترام المدنيين والمشتبه بهم جزء من جودة السيناريو.</li></ul></article>
+        <article class="rpRule"><h3>🚑 6. الإسعاف والطوارئ</h3><ul><li>عامل المسعفين كجزء من السيناريو وليس كخدمة خارج الرول.</li><li>احترم مناطق الطوارئ ولا تعطل عمل الطواقم.</li><li>بعد إنقاذ الشخصية، التزم بما يفرضه السيناريو من آثار وإجراءات.</li></ul></article>
+        <article class="rpRule"><h3>🚗 7. القيادة والمرور</h3><ul><li>القيادة تكون منطقية مع الطريق والازدحام وحالة السيارة.</li><li>تجنب الصدم العشوائي والقيادة التي تفسد السيناريو.</li><li>احترم إشارات وقوانين المرور المعتمدة في السيرفر.</li></ul></article>
+        <article class="rpRule"><h3>🔫 8. الجرائم والأسلحة</h3><ul><li>أي جريمة أو استخدام سلاح يجب أن يكون جزءًا من سيناريو RP واضح.</li><li>لا تبدأ جريمة عشوائية لمجرد جمع المال أو قتل لاعب.</li><li>احترم مناطق الحماية والمناطق التي يمنع فيها حمل أو استخدام السلاح.</li><li>اتبع شروط السيرفر الخاصة بكل نوع من الجرائم والأسلحة.</li></ul></article>
+        <article class="rpRule"><h3>🏦 9. السرقات والسطو</h3><ul><li>السرقة تحتاج تخطيطًا وسيناريو مناسبًا حسب قوانين السيرفر.</li><li>احترم عدد المشاركين، شروط الشرطة، ومناطق بداية ونهاية السيناريو.</li><li>لا تستخدم السطو كذريعة لإجبار اللاعبين على تصرفات خارج الرول.</li></ul></article>
+        <article class="rpRule"><h3>👤 10. الخطف والرهائن</h3><ul><li>يجب أن يكون السيناريو منطقيًا ومسموحًا بقوانين السيرفر.</li><li>احترم سلامة المشاركين وحدود السيناريو.</li><li>التفاوض مع الشرطة يكون واضحًا ومبنيًا على RP وليس على الاستفزاز.</li></ul></article>
+        <article class="rpRule"><h3>⚖️ 11. الاعتقال والمحاكمة</h3><ul><li>احترم إجراءات التوقيف والتحقيق والأدلة المعتمدة.</li><li>لا تتلاعب بالأدلة أو الأحداث خارج إطار الرول.</li><li>التزم بالأحكام والعقوبات التي يحددها نظام السيرفر.</li></ul></article>
+        <article class="rpRule"><h3>💬 12. التواصل</h3><ul><li>استخدم القنوات المناسبة داخل وخارج الشخصية.</li><li>لا تخلط الكلام العادي مع كلام الشخصية أثناء السيناريو.</li><li>تجنب الإهانات والمضايقات والجدال الذي يفسد اللعب.</li></ul></article>
+        <article class="rpRule"><h3>🏢 13. الوظائف والمنظمات</h3><p>التزم بصلاحيات وظيفتك، ولا تستخدم معدات أو معلومات الوظيفة لمصلحة شخصية خارج نطاق السيناريو.</p></article>
+        <article class="rpRule"><h3>🛡️ 14. المناطق الآمنة</h3><p>احترم المناطق التي يحددها السيرفر كمناطق آمنة، ولا تبدأ فيها جرائم أو مطاردات أو اعتداءات إذا كانت القوانين تمنع ذلك.</p></article>
+        <article class="rpRule"><h3>👑 15. الإدارة والعقوبات</h3><ul><li>اتبع تعليمات الإدارة أثناء حل النزاعات.</li><li>إذا حدث خلاف، استخدم نظام الشكاوى بدل تخريب السيناريو.</li><li>العقوبات تختلف حسب قانون السيرفر وتكرار المخالفة.</li></ul></article>
+        <article class="rpRule full"><h3>⭐ 16. أهم قاعدة</h3><p>العب بطريقة تجعل الشخص الآخر قادرًا على الاستمتاع بالسيناريو أيضًا. لو كان التصرف يفسد الرول للجميع، غالبًا يحتاج منك توقف وتعيد التفكير فيه.</p></article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="authModal" class="modal"><div class="modalBox authBox">
+<button class="close" onclick="closeAuth()">×</button>
+<div class="modalBadge">Falcon on Top</div>
+<div class="authTabs"><button id="loginTab" class="active" onclick="showAuth('login')">تسجيل الدخول</button><button id="registerTab" onclick="showAuth('register')">إنشاء حساب</button></div>
+<div id="loginForm">
+<h2>أهلاً بك في Falcon on Top</h2><p>سجّل دخولك بحساب الموقع.</p>
+<input id="loginUser" class="authInput" placeholder="اسم المستخدم" autocomplete="username">
+<input id="loginPass" class="authInput" type="password" placeholder="كلمة المرور" autocomplete="current-password">
+<button class="btn primary authSubmit" onclick="login()">تسجيل الدخول</button>
+</div>
+<div id="registerForm" style="display:none">
+<h2>إنشاء حساب جديد</h2><p>الحساب خاص بFalcon on Top، ولا يحتاج Discord أو Google.</p>
+<input id="regUser" class="authInput" placeholder="اسم المستخدم" autocomplete="username">
+<input id="regPass" class="authInput" type="password" placeholder="كلمة المرور" autocomplete="new-password">
+<input id="regPass2" class="authInput" type="password" placeholder="تأكيد كلمة المرور" autocomplete="new-password">
+<button class="btn primary authSubmit" onclick="register()">إنشاء الحساب</button>
+</div>
+</div></div>
+
+<div id="notificationModal" class="modal notificationModal" role="dialog" aria-modal="true">
+<div class="modalBox notificationBox">
+<div class="notificationIcon">🔔</div>
+<div class="modalBadge">FALCON NOTIFICATION</div>
+<h2 id="notificationTitle">إشعار جديد</h2>
+<p id="notificationText"></p>
+<button class="btn primary" onclick="confirmNotification()">تم / تأكيد</button>
+</div></div>
+
+<div id="supportModal" class="modal supportModal" role="dialog" aria-modal="true">
+<div class="modalBox supportModalBox">
+<button class="close" onclick="closeSupportModal()">×</button>
+<div class="modalBadge">SUPPORT</div>
+<h2>إرسال رسالة للدعم الفني</h2>
+<p>اكتب رسالتك هنا وسيتم إرسالها مباشرة.</p>
+<textarea id="supportModalInput" placeholder="اكتب مشكلتك أو رسالتك..."></textarea>
+<button class="btn primary" onclick="sendSupportInline()">إرسال الرسالة</button>
+</div></div>
+
+<div id="giftModal" class="modal giftModal"><div class="modalBox giftBox">
+<button class="close" onclick="closeGiftModal()">×</button>
+<div class="giftEmoji">🎁</div>
+<div class="modalBadge">SUPPORT GIFT</div>
+<h2>لقد استلمت هدية من الدعم الفني</h2>
+<p id="giftDesc">لديك هدية عملات فالكون جاهزة للاستلام.</p>
+<div id="giftList" class="giftList"></div>
+<button id="giftClaimBtn" class="btn primary giftClaimBtn" onclick="claimGiftFromPrompt()">استلام الهدية</button>
+</div></div>
+
+<div id="modal" class="modal"><div class="modalBox"><button class="close" onclick="closeModal()">×</button><div class="modalBadge">Falcon on Top</div><h2 id="modalTitle"></h2><p id="modalDesc"></p><div id="modalExtra"></div><textarea id="modalInput" placeholder="اكتب اسمك في ديسكورد أو البيانات المطلوبة"></textarea><button id="modalBtn" class="btn primary">تأكيد</button></div></div>
+<script src="/app.js"></script></body></html>
