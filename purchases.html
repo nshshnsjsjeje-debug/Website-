@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090c"><title>مشترياتي — فالكون</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+body{background:#09090c;color:#fff}.purchasePage{width:min(1050px,calc(100% - 30px));margin:0 auto;padding:40px 0 80px}
+.purchaseHero{padding:35px 0 25px}.purchaseHero .tag{color:#ffd34e;font-weight:800}.purchaseHero h1{font-size:clamp(32px,6vw,58px);margin:10px 0}.purchaseHero p{color:#888}
+.purchasesList{display:grid;gap:14px}.purchaseRow{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:15px;padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:linear-gradient(145deg,#15151b,#0d0d11)}
+.purchaseIcon{font-size:32px}.purchaseInfo{display:grid;gap:6px}.purchaseInfo small{color:#777}.purchaseInfo span{color:#aaa}.purchaseInfo strong{color:#ffd34e}.purchaseInfo del{color:#777}.purchaseStatus{padding:9px 13px;border-radius:999px;background:#3a2f10;color:#ffd34e;font-style:normal;font-weight:900;font-size:11px}.purchaseStatus.done{background:#113a27;color:#69e29b}.purchaseStatus.cancelled{background:#3d1820;color:#ff7080}
+@media(max-width:600px){.purchaseRow{grid-template-columns:42px 1fr}.purchaseStatus{grid-column:2;justify-self:start}}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="/"><div><b>فالكون نيو</b><small>STORE</small></div></a>
+<nav><a href="/">الرئيسية</a><a href="/samp.html">شراء سامب</a><a class="active" href="/purchases.html">🛒 مشترياتي</a><a href="/auctions.html">🏆 المزاد</a><a href="/roleplay.html">تعليم رول بلاي</a></nav>
+<a class="quickBtn" href="/">العودة للموقع</a>
+</header>
+<main class="purchasePage">
+<section class="purchaseHero"><div class="tag">FALCON PURCHASES</div><h1>🛒 مشترياتي</h1><p>كل طلباتك وحالتها في مكان واحد. الطلب الجديد يظهر مباشرة بحالة <b>سيتم التسليم</b>.</p></section>
+<section class="card"><div id="status" class="muted">جارٍ تحميل مشترياتك...</div><div id="purchasesList" class="purchasesList"></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+async function load(){
+ try{
+  const r=await fetch('/api/purchases',{credentials:'same-origin'});
+  const d=await r.json();
+  if(!r.ok){location.href='/';return}
+  const rows=d.purchases||[];
+  $('status').textContent=rows.length?`لديك ${rows.length} طلب`:'لم تشترِ أي شيء حتى الآن.';
+  $('purchasesList').innerHTML=rows.map(o=>{
+   const s=o.status||'جديد', disc=Number(o.discountPercent||0);
+   return `<article class="purchaseRow"><div class="purchaseIcon">📦</div><div class="purchaseInfo"><b>${esc(o.product)}</b><small>رقم الطلب: ${esc(String(o.id).slice(0,8))} • ${new Date(o.date).toLocaleString('ar-EG')}</small><span>${disc?`<del>${Number(o.originalPrice||o.price).toLocaleString('ar-EG')} 🪙</del> `:''}<strong>${Number(o.amountPaid??o.price).toLocaleString('ar-EG')} 🪙</strong>${disc?` • خصم ${disc}%`:''}</span></div><em class="purchaseStatus ${s==='تم التسليم'?'done':s==='ملغي'?'cancelled':''}">${esc(s)}</em></article>`;
+  }).join('');
+ }catch(e){$('status').textContent='تعذر تحميل المشتريات.'}
+}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+load();
+</script>
+</body></html>
