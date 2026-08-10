@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تعليم رول بلاي — فالكون</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+body{min-height:100vh;background:#09090c;color:#fff}
+.rolePage{max-width:1480px;margin:0 auto;padding:38px 28px 70px}
+.roleTop{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:28px 0 34px;padding:28px;border:1px solid #27272d;border-radius:22px;background:linear-gradient(135deg,#141419,#0d0d11)}
+.roleTop h1{margin:0 0 8px;font-size:34px}.roleTop p{margin:0;color:#9b9ba5}.roleExit{width:48px;height:48px;border:1px solid #33333b;background:#17171d;color:#fff;border-radius:14px;font-size:26px;text-decoration:none;display:grid;place-items:center}
+.roleSearch{width:100%;padding:16px 18px;background:#111116;border:1px solid #2a2a31;border-radius:14px;color:#fff;outline:none;margin-bottom:24px;font-family:inherit}
+.roleGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.roleSection{background:#101014;border:1px solid #292930;border-radius:18px;overflow:hidden}
+.roleSection summary{cursor:pointer;list-style:none;padding:20px;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:space-between}.roleSection summary::-webkit-details-marker{display:none}.roleSection summary:after{content:'＋';color:#f6c928;font-size:22px}.roleSection[open] summary:after{content:'−'}
+.roleBody{padding:0 20px 20px;color:#c9c9d0;line-height:1.9}.roleBody h3{font-size:14px;color:#f6c928;margin:18px 0 7px}.roleBody ul{margin:0;padding-right:20px}.roleBody li{margin:5px 0}
+.roleNote{margin-top:22px;padding:18px;border-radius:16px;background:#131319;border:1px solid #2b2b33;color:#aaaab4;font-size:13px}
+@media(max-width:900px){.roleGrid{grid-template-columns:1fr 1fr}.rolePage{padding:20px 14px 50px}.roleTop{padding:20px}.roleTop h1{font-size:27px}}
+@media(max-width:600px){.roleGrid{grid-template-columns:1fr}.roleTop{align-items:flex-start}.roleExit{flex:none}.roleSection summary{padding:17px}.roleBody{padding:0 17px 18px}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="/"><div><b>فالكون نيو</b><small>ROLE PLAY</small></div></a><nav><a href="/">الرئيسية</a><a href="/samp.html">شراء سامب</a><a href="/auctions.html">🏆 المزاد</a><a class="active" href="/roleplay.html">تعليم رول بلاي</a></nav><a class="login" href="/">الرئيسية</a></header>
+<main class="rolePage">
+<section class="roleTop"><div><div class="tag">FALCON ROLE PLAY</div><h1>📚 تعليم رول بلاي</h1><p>كل القواعد الأساسية للشرطة والإجرام والمواطنين والوظائف والـRP.</p></div><a class="roleExit" href="/" aria-label="خروج">×</a></section>
+<input class="roleSearch" id="roleSearch" placeholder="🔎 ابحث داخل القوانين..." oninput="filterRules(this.value)">
+<section class="roleGrid" id="rules">
+<details class="roleSection" open><summary>⚖️ القوانين العامة للـRP</summary><div class="roleBody"><ul><li>التزم بتقمص شخصيتك ولا تخرج عن سياق الرول بلاي بدون سبب.</li><li>ممنوع استخدام معلومات عرفتها خارج اللعبة داخل الشخصية (Meta Gaming).</li><li>ممنوع إجبار لاعب على نتيجة لا يستطيع التفاعل معها (Power Gaming).</li><li>حافظ على منطق الأحداث وتعامل مع المواقف بطريقة واقعية داخل السيرفر.</li><li>احترم اللاعبين والإدارة، وممنوع السب أو الإهانة أو الاستفزاز خارج سياق اللعب.</li><li>لا تستغل الثغرات أو الأخطاء، وبلغ الإدارة عنها.</li></ul></div></details>
+<details class="roleSection"><summary>🚓 قوانين الشرطة</summary><div class="roleBody"><ul><li>الشرطة تتعامل مع البلاغات والمخالفات وفق صلاحياتها داخل السيرفر.</li><li>يجب توضيح سبب الإيقاف أو التفتيش عندما يسمح الموقف بذلك.</li><li>ممنوع استخدام السلطة لمصلحة شخصية أو الانتقام من لاعب.</li><li>الاعتقال والمطاردة والتفتيش يجب أن تكون بسبب RP واضح.</li><li>الالتزام بالتدرج الإداري وأوامر الرتب العليا داخل العمل.</li><li>يمنع استغلال مركبات أو معدات الشرطة خارج مهامها.</li></ul></div></details>
+<details class="roleSection"><summary>🔫 قوانين الإجرام والعصابات</summary><div class="roleBody"><ul><li>أي نشاط إجرامي يجب أن يكون له سبب RP واضح.</li><li>ممنوع قتل لاعب عشوائيًا بدون سبب أو سيناريو (RDM).</li><li>ممنوع العودة للانتقام مباشرة بعد الموت أو انتهاء السيناريو.</li><li>لا تستخدم معلومات خارج الشخصية لتحديد مكان الشرطة أو اللاعبين.</li><li>الالتزام بحدود العصابة وتحالفاتها وأوامر القيادة.</li><li>السرقات والاتفاقات والمطاردات تتم وفق أنظمة السيرفر.</li></ul></div></details>
+<details class="roleSection"><summary>🏴 قوانين العصابات</summary><div class="roleBody"><ul><li>احترام قيادة العصابة وقواعدها الداخلية.</li><li>ممنوع بدء حرب أو مشكلة كبيرة بدون سبب RP أو قرار مسموح به.</li><li>لا تستعمل نفوذ العصابة خارج سياق الرول بلاي.</li><li>ممنوع استغلال أعضاء العصابة أو إجبارهم على مخالفات خارج النظام.</li><li>أي تحالف أو عداوة يجب أن تكون معلومة ضمن RP.</li></ul></div></details>
+<details class="roleSection"><summary>🚗 قوانين المرور والمركبات</summary><div class="roleBody"><ul><li>القيادة بطريقة مناسبة للموقف وعدم استخدام الشوارع بشكل عبثي.</li><li>ممنوع استخدام المركبة لدهس اللاعبين عمدًا.</li><li>احترم إشارات المرور ومناطق السرعة عندما تكون مطبقة.</li><li>في المطاردات، حافظ على RP منطقي ولا تستغل أخطاء الخريطة.</li><li>لا تستخدم مركبة لا تملك صلاحية استخدامها.</li></ul></div></details>
+<details class="roleSection"><summary>🏥 قوانين الإسعاف</summary><div class="roleBody"><ul><li>المسعف يحافظ على الحياد أثناء تقديم العلاج.</li><li>لا يستغل المسعف وظيفته لمساعدة طرف في نزاع إجرامي.</li><li>التعامل مع المصابين يكون وفق سيناريو RP منطقي.</li><li>ممنوع استخدام مركبات الإسعاف لأغراض شخصية.</li></ul></div></details>
+<details class="roleSection"><summary>💰 قوانين السرقات</summary><div class="roleBody"><ul><li>السرقة تحتاج إلى سيناريو واضح ووقت مناسب حسب نظام السيرفر.</li><li>لا تبدأ سرقة ثم تلغي السيناريو لمجرد الخوف من الخسارة.</li><li>احترام عدد المشاركين والحدود التي يحددها السيرفر لكل نوع من السرقات.</li><li>عدم استغلال الثغرات أو أخطاء المهام للحصول على أرباح غير مستحقة.</li></ul></div></details>
+<details class="roleSection"><summary>🚨 قوانين المطاردات والاعتقالات</summary><div class="roleBody"><ul><li>المطاردة يجب أن تبدأ بسبب مخالفة أو حدث RP واضح.</li><li>اللاعب الهارب يلتزم بالسيناريو ولا يستغل أماكن غير منطقية للهروب.</li><li>الشرطة تلتزم بإجراءاتها الداخلية وعدم إساءة استخدام الصلاحيات.</li><li>عند انتهاء المطاردة، يتم استكمال السيناريو حتى نهايته بدل إلغاء الحدث بدون سبب.</li></ul></div></details>
+<details class="roleSection"><summary>👤 قوانين المواطنين</summary><div class="roleBody"><ul><li>احترم الشخصيات الأخرى وتفاعل معها داخل RP.</li><li>ممنوع التدخل في سيناريو لا يخصك بدون سبب منطقي.</li><li>لا تدّعي امتلاك معلومات أو أموال أو صلاحيات غير موجودة في شخصيتك.</li><li>التزم بقوانين المناطق والوظائف التي تدخلها.</li></ul></div></details>
+<details class="roleSection"><summary>🔫 قوانين الأسلحة</summary><div class="roleBody"><ul><li>السلاح يستخدم ضمن سيناريو RP وليس للتهديد العشوائي.</li><li>ممنوع إطلاق النار في المناطق الآمنة أو الممنوعة حسب قوانين السيرفر.</li><li>لا تستعمل السلاح لمجرد الاستفزاز أو إجبار لاعب على موقف غير منطقي.</li><li>احترم القواعد الخاصة بحيازة وبيع واستخدام الأسلحة داخل السيرفر.</li></ul></div></details>
+<details class="roleSection"><summary>🏢 قوانين الوظائف</summary><div class="roleBody"><ul><li>التزم بمهام الوظيفة وأوقاتها وصلاحياتها.</li><li>لا تستغل الوظيفة لجمع الأموال بطريقة غير مشروعة.</li><li>ممنوع استخدام مركبات أو أدوات العمل لأغراض شخصية بدون سماح.</li><li>احترم الرتب والإدارة الداخلية لكل وظيفة.</li></ul></div></details>
+<details class="roleSection"><summary>🚫 المخالفات والعقوبات</summary><div class="roleBody"><ul><li>العقوبة تختلف حسب نوع المخالفة وتكرارها وتأثيرها على الـRP.</li><li>المخالفات البسيطة قد ينتج عنها تنبيه أو إنذار.</li><li>المخالفات المتكررة أو الكبيرة قد ينتج عنها عقوبة داخل السيرفر حسب اللائحة.</li><li>استغلال الثغرات أو الغش قد يؤدي إلى عقوبة إدارية أشد.</li><li>قرارات الإدارة النهائية تعتمد على لائحة السيرفر والأدلة المتاحة.</li></ul></div></details>
+</section>
+<div class="roleNote">⚠️ هذه صفحة تعليمية عامة. إذا كان لسيرفر Falcon قوانين خاصة أو أرقام محددة للعقوبات، يمكن استبدال هذه البنود بلائحة السيرفر الرسمية.</div>
+</main>
+<script>
+function filterRules(q){q=q.trim().toLowerCase();document.querySelectorAll('.roleSection').forEach(x=>{x.style.display=!q||x.textContent.toLowerCase().includes(q)?'':'none';if(q&&x.textContent.toLowerCase().includes(q))x.open=true;});}
+</script>
+</body></html>
