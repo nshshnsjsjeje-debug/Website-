@@ -1,0 +1,13 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>إشعارات العضو — فالكون</title><link rel="stylesheet" href="/style.css"></head><body>
+<header class="falconHeader"><a class="brand" href="/"><div><b>فالكون</b><small>NOTIFICATIONS</small></div></a><a class="btn dark pageExitTop" href="/">× خروج</a></header>
+<main class="notificationsPage"><div class="pageTop"><div><div class="modalBadge">FALCON NOTIFICATIONS</div><h1>🔔 إشعارات العضو</h1><p class="muted">هنا تظهر تأكيدات الشراء والتسليم والدعم والهدايا.</p></div><button id="readAll" class="btn primary">تحديد الكل كمقروء</button></div><section class="card"><div id="list" class="notificationPageList"><p class="muted">جاري التحميل...</p></div></section></main>
+<script>
+const $=id=>document.getElementById(id);
+async function api(url,opts={}){const o={...opts,credentials:'same-origin',headers:{...(opts.headers||{})}};if(o.body&&typeof o.body!=='string'){o.headers['Content-Type']='application/json';o.body=JSON.stringify(o.body)}const r=await fetch(url,o);let d={};try{d=await r.json()}catch(e){}if(!r.ok)throw new Error(d.error||'حدث خطأ');return d}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function icon(n){return n.type==='gift'?'🎁':n.type==='giftClaimed'?'💰':n.type==='order'?'🛒':n.type==='auction'?'🏆':n.type==='system'?'⚙️':n.type==='staffSupport'?'🎧':'🔔'}
+async function load(){try{const d=await api('/api/notifications/all');const rows=d.notifications||[];$('list').innerHTML=rows.length?rows.map(n=>`<article class="notificationPageItem ${n.read?'':'unread'}"><div class="notificationPageIcon">${icon(n)}</div><div><h3>${esc(n.title||'إشعار جديد')}</h3><p>${esc(n.text||'')}</p><small>${n.sender?`من ${esc(n.sender)} • `:''}${new Date(n.createdAt).toLocaleString('ar-EG')}</small>${n.type==='gift'&&n.giftId?`<button class="notificationClaimBtn" onclick="claim('${esc(n.giftId)}','${esc(n.id)}')">استلام الهدية</button>`:''}</div></article>`).join(''):'<p class="muted">لا توجد إشعارات.</p>';}catch(e){$('list').innerHTML='<p class="muted">سجل الدخول أولاً لرؤية إشعاراتك.</p>'}}
+async function claim(gid,nid){try{const r=await api('/api/gifts/'+encodeURIComponent(gid)+'/claim',{method:'POST'});await api('/api/notifications/read',{method:'POST',body:{id:nid}});alert('تم استلام '+Number(r.amount||0).toLocaleString('ar-EG')+' عملة');load()}catch(e){alert(e.message)}}
+$('readAll').onclick=async()=>{try{await api('/api/notifications/read-all',{method:'POST'});load()}catch(e){}}
+load();
+</script></body></html>
