@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: hussen-elmasry-portfolio
-    runtime: static
-    buildCommand: ""
-    staticPublishPath: .
